@@ -47,6 +47,7 @@ def get_subtitleinfo(filename):
     sys.stdout.write("Requesting subtitle info...\n")
     response = requests.post(
         "https://www.shooter.cn/api/subapi.php",
+        verify=False,
         params= {
             'filehash': calculate_checksum(filename),
             'pathinfo': os.path.realpath(filename),
