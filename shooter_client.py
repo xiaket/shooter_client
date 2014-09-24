@@ -4,7 +4,7 @@
 Author:         Xia Kai <xiaket@corp.netease.com/xiaket@gmail.com>
 Filename:       shooter_client.py
 Date created:   2014-04-30 13:31
-Last modified:  2014-05-05 14:27
+Last modified:  2014-09-24 21:19
 Modified by:    Xia Kai <xiaket@corp.netease.com/xiaket@gmail.com>
 
 Description:
@@ -16,6 +16,7 @@ import os
 import sys
 
 import requests
+from requests.packages.urllib3 import disable_warnings
 
 
 def calculate_checksum(filename):
@@ -61,6 +62,7 @@ def get_subtitleinfo(filename):
     return response
 
 def main(filename):
+    disable_warnings()
     if not os.path.isfile(os.path.realpath(filename)):
         sys.stderr.write("File %s not found.\n" % filename)
         sys.exit(1)
@@ -76,7 +78,7 @@ def main(filename):
         for fileinfo in response.json()[count]['Files']:
             url = fileinfo['Link']
             ext = fileinfo['Ext']
-            _response = requests.get(url)
+            _response = requests.get(url, verify=False)
             filename = "%s.%s" % (basename, ext)
 
             if _response.ok and _response.text not in subtitles:
