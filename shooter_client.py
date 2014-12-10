@@ -4,7 +4,7 @@
 Author:         Xia Kai <xiaket@corp.netease.com/xiaket@gmail.com>
 Filename:       shooter_client.py
 Date created:   2014-04-30 13:31
-Last modified:  2014-09-24 21:19
+Last modified:  2014-12-10 10:30
 Modified by:    Xia Kai <xiaket@corp.netease.com/xiaket@gmail.com>
 
 Description:
@@ -73,13 +73,15 @@ def main(filename):
     subtitles = set([])
     for count in xrange(len(response.json())):
         if count != 0:
-            basename = "%s-alt.%s" % (basename, count)
+            _basename = "%s-alt.%s" % (basename, count)
+        else:
+            _basename = "%s.%s" % (basename, count)
 
         for fileinfo in response.json()[count]['Files']:
             url = fileinfo['Link']
             ext = fileinfo['Ext']
             _response = requests.get(url, verify=False)
-            filename = "%s.%s" % (basename, ext)
+            filename = "%s.%s" % (_basename, ext)
 
             if _response.ok and _response.text not in subtitles:
                 subtitles.add(_response.text)
