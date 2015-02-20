@@ -8,7 +8,7 @@ Last modified:  2014-12-10 10:30
 Modified by:    Xia Kai <xiaket@corp.netease.com/xiaket@gmail.com>
 
 Description:
-    For a video file, find it's subtitle from shooter.cn
+    For a video file, find its subtitle from shooter.cn
 Changelog:
 """
 import hashlib
