@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 #coding=utf-8
 """
-Author:         Xia Kai <xiaket@corp.netease.com/xiaket@gmail.com>
+Author:         Kai Xia<xiaket@gmail.com>
 Filename:       shooter_client.py
 Date created:   2014-04-30 13:31
 Last modified:  2014-12-10 10:30
-Modified by:    Xia Kai <xiaket@corp.netease.com/xiaket@gmail.com>
+Modified by:    Kai Xia <xiaket@gmail.com>
 
 Description:
     For a video file, find its subtitle from shooter.cn
